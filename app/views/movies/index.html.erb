@@ -1,2 +1,7 @@
 <h1>Movies#index</h1>
 <p>Find me in app/views/movies/index.html.erb</p>
+<% if params[:search] %>
+  <% @r['results'].each do |m| %>
+    <%= m['title'] %><br>
+  <% end %>
+<% end %>
