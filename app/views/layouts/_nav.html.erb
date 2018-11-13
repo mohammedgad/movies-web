@@ -16,14 +16,20 @@
              <a class="nav-link" href='<%= movies_path %>'>Search</a>
            </li>
            <li class="nav-item">
-             <a class="nav-link" href="#">Favos</a>
+             <a class="nav-link" href="<%= favos_path %>">Favos</a>
            </li>
+           <% unless is_logged? %>
            <li class="nav-item">
              <a class="nav-link" href='<%= user_login_path %>'>Login</a>
            </li>
            <li class="nav-item">
              <a class="nav-link" href="<%= user_create_path %>">Signup</a>
            </li>
+           <% else %>
+             <li class="nav-item">
+               <%= link_to "Logout", logout_path, class: "nav-link" %>
+             </li>
+           <% end %>
          </ul>
        </div>
      </div>

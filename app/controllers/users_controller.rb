@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :check_logged?, only: [:create,:login]
   def login
   end
 
@@ -23,7 +24,9 @@ class UsersController < ApplicationController
   end
 
   def logout
-    session[:user_token] = ""
+    session.delete(:user_token)
+    flash[:success] = "logged out"
+    redirect_to root_path
   end
 
   def create

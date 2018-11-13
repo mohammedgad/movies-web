@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
   root 'movies#index'
+  get 'favos', to: "favos#index", as: "favos"
+  post 'favos/create'
+  post 'favos/destroy'
+  get 'logout', to: "users#logout", as: "logout"
   get 'login', :to => "users#login", :as => "user_login"
   get 'signup', :to => "users#create", :as => "user_create"
   post 'users/create_session'
