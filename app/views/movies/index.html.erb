@@ -6,7 +6,7 @@
   <% if params[:search] %>
   <!-- Page Heading -->
   <h1 class="my-4">Movies Database
-    <small>Search</small>
+    <small>Search <%= @r['total_results'] %> Movie!</small>
   </h1>
   <% @r['results'].each do |m| %>
   <div class="row mb-3">
