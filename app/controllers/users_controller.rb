@@ -1,5 +1,8 @@
 class UsersController < ApplicationController
   def login
+  end
+
+  def create_session
     email = params[:email]
     password = params[:password]
     if email.present? && password.present?
@@ -12,6 +15,9 @@ class UsersController < ApplicationController
       if r['jwt'].present?
         session[:user_token] = r['jwt']
         flash[:success] = "user loged in"
+        redirect_to root_path
+      else
+        redirect_to user_login_path
       end
     end
   end
