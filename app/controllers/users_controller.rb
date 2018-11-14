@@ -10,7 +10,7 @@ class UsersController < ApplicationController
     email = params[:email]
     password = params[:password]
     if email.present? && password.present?
-      r = HTTParty.post("http://0.0.0.0:3001/user_token",
+      r = HTTParty.post("#{ENV['MOVIE_API_URL']}/user_token",
                 :body => { "auth": {
                   :email => email,
                   :password => password
@@ -37,7 +37,7 @@ class UsersController < ApplicationController
     email = params[:email]
     password = params[:password]
     if email.present? && password.present? && name.present?
-      r = HTTParty.post("http://0.0.0.0:3001/users",
+      r = HTTParty.post("#{ENV['MOVIE_API_URL']}/users",
                 :body => { "user": {
                   :name => name,
                   :email => email,

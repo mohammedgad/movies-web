@@ -1,7 +1,7 @@
 class FavosController < ApplicationController
   def index
     if session[:user_token].present?
-      h = HTTParty.get("http://0.0.0.0:3001/favos", headers: {
+      h = HTTParty.get("#{ENV['MOVIE_API_URL']}/favos", headers: {
        "Authorization" => "Bearer #{session[:user_token]}",
            "cache-control" => "no-cache"
         })
@@ -13,7 +13,7 @@ class FavosController < ApplicationController
 
   def create
     if session[:user_token].present? && params[:movie_id]
-      h = HTTParty.post("http://0.0.0.0:3001/favos", headers: {
+      h = HTTParty.post("#{ENV['MOVIE_API_URL']}/favos", headers: {
        "Authorization" => "Bearer #{session[:user_token]}",
            "cache-control" => "no-cache"
         }, body: {
@@ -34,7 +34,7 @@ class FavosController < ApplicationController
 
   def destroy
     if session[:user_token].present? && params[:favo_id]
-      h = HTTParty.delete("http://0.0.0.0:3001/favos/#{params[:favo_id]}", headers: {
+      h = HTTParty.delete("#{ENV['MOVIE_API_URL']}/favos/#{params[:favo_id]}", headers: {
        "Authorization" => "Bearer #{session[:user_token]}",
            "cache-control" => "no-cache"
         })
