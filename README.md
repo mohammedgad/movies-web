@@ -1,6 +1,6 @@
 # Movies-web Requirements
 
-Create .env file in root dir with these env keys
+Create .env file in project root dir with these env keys
 
 
 TMDB_API_KEY=1123214ascvvew13aExample #The movie database api_key
