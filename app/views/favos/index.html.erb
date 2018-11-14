@@ -12,7 +12,10 @@
     <div class="col-md-10">
       <h3><%= m['movie_title'] %></h3>
       <p><%= m['movie_overview'] %></p>
-      <a class="btn btn-danger" href="#">Remove</a>
+      <%= form_tag '/favos/destroy', method: :post do %>
+      <%= hidden_field_tag "favo_id", m['id'] %>
+      <button class="btn btn-danger" href="#">Remove</button>
+      <% end %>
     </div>
   </div>
   <% end %>

@@ -18,7 +18,13 @@
     <div class="col-md-10">
       <h3><%= m['title'] %></h3>
       <p><%= m['overview'] %></p>
-      <a class="btn btn-primary" href="#">Add Favo</a>
+      <%= form_tag '/favos/create', method: :post, :remote => true do %>
+      <%= hidden_field_tag "movie_id", m['id'] %>
+      <%= hidden_field_tag "movie_title", m['title'] %>
+      <%= hidden_field_tag "movie_overview", m['overview'] %>
+      <%= hidden_field_tag "movie_poster", m['poster_path'] %>
+      <button class="btn btn-primary" href="#">Add Favo</button>
+      <% end %>
     </div>
   </div>
   <% end %>
