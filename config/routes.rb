@@ -5,7 +5,8 @@ Rails.application.routes.draw do
   post 'favos/destroy'
   get 'logout', to: "users#logout", as: "logout"
   get 'login', :to => "users#login", :as => "user_login"
-  get 'signup', :to => "users#create", :as => "user_create"
+  get 'signup', :to => "users#signup", :as => "user_signup"
+  post 'users/create_user'
   post 'users/create_session'
   get 'movies/index', :as => "movies"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

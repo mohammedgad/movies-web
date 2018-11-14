@@ -6,6 +6,8 @@ class FavosController < ApplicationController
            "cache-control" => "no-cache"
         })
       @r = JSON.parse(h.body)
+    else
+      redirect_to user_login_path
     end
   end
 
